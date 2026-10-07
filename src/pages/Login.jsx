@@ -4,12 +4,14 @@ import React, { useState } from "react";
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
 
+  
+
   return (
     <div className="min-h-screen bg-gray-50 flex items-center justify-center px-6 py-12">
 
       <div className="w-full max-w-5xl bg-white rounded-3xl shadow-xl overflow-hidden grid md:grid-cols-2">
 
-        {/* Left Side */}
+        
         <div className="hidden md:flex bg-gradient-to-br from-blue-700 via-blue-600 to-blue-500 text-white p-12 flex-col justify-center">
 
           <p className="text-blue-200 font-semibold uppercase tracking-wider text-sm">
@@ -55,10 +57,9 @@ const Login = () => {
         </div>
 
 
-        {/* Right Side */}
+        
         <div className="p-8 md:p-12">
 
-          {/* Heading */}
           <div className="text-center mb-8">
 
             <div className="w-14 h-14 bg-blue-100 text-blue-600 rounded-2xl flex items-center justify-center text-2xl font-bold mx-auto">
@@ -76,10 +77,10 @@ const Login = () => {
           </div>
 
 
-          {/* Login Form */}
+          
           <form className="space-y-5">
 
-            {/* Email */}
+            
             <div>
               <label className="block text-sm font-semibold text-gray-700 mb-2">
                 Email Address
@@ -93,7 +94,7 @@ const Login = () => {
             </div>
 
 
-            {/* Password */}
+           
             <div>
 
               <div className="flex justify-between items-center mb-2">
@@ -132,7 +133,7 @@ const Login = () => {
             </div>
 
 
-            {/* Remember Me */}
+            
             <div className="flex items-center gap-2">
 
               <input
@@ -147,7 +148,7 @@ const Login = () => {
             </div>
 
 
-            {/* Login Button */}
+            
             <button
               type="submit"
               className="
@@ -169,7 +170,7 @@ const Login = () => {
             </button>
 
 
-            {/* Divider */}
+            
             <div className="flex items-center gap-4 my-6">
 
               <div className="flex-1 border-t border-gray-200"></div>
@@ -183,7 +184,7 @@ const Login = () => {
             </div>
 
 
-            {/* Google Button */}
+           
             <button
               type="button"
               className="
@@ -204,7 +205,7 @@ const Login = () => {
           </form>
 
 
-          {/* Register */}
+          
           <p className="text-center text-sm text-gray-500 mt-8">
 
             Don't have an account?

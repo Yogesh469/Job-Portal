@@ -7,6 +7,7 @@ import Login from './pages/Login'
 import Jobdetail from './pages/Jobdetail'
 import About from './pages/About'
 import Footer from "./components/Footer"
+import Admin from './pages/Admin'
 
 
 const App = () => {
@@ -20,6 +21,7 @@ const App = () => {
         <Route path="/companies" element={<Companies />} />
         <Route path="/about" element={<About />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/admin-login" element={<Admin/>} />
 
 
       </Routes>
