@@ -1,39 +1,46 @@
 
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router";
-import { deleteJob } from "../redux/jobSlice.js";
+import { useDispatch, useSelector } from "react-redux"
+import { useNavigate } from "react-router"
+import { deleteJob } from "../redux/jobSlice.js"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import {  faSuitcase,faBuilding,faUsers,faFileLines } from "@fortawesome/free-solid-svg-icons"
 
 
 const Admin = () => {
     const nav = useNavigate()
     const dispatch = useDispatch()
 
+
     const data = useSelector((item) => item.jobs.jobs)
 
     console.log(data)
+
+    
+
+     
 
 
     const stats = [
         {
             title: "Total Jobs",
             value: "120",
-            icon: "💼",
+            icon: faSuitcase,
         },
         {
             title: "Companies",
             value: "45",
-            icon: "🏢",
+            icon:faBuilding,
         },
         {
             title: "Users",
             value: "850",
-            icon: "👥",
+            icon: faUsers,
         },
         {
             title: "Applications",
             value: "320",
-            icon: "📄",
+            icon: faFileLines,
         },
     ];
 
@@ -149,7 +156,7 @@ const Admin = () => {
                                 </div>
 
                                 <div className="text-3xl bg-blue-50 p-3 rounded-lg">
-                                    {stat.icon}
+                                    <FontAwesomeIcon icon={stat.icon} />
                                 </div>
 
                             </div>
