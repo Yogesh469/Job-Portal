@@ -4,14 +4,14 @@ const Home = () => {
     return (
         <div className="min-h-screen bg-white">
 
-            {/* Hero Section */}
+           
             <section className="bg-blue-50">
 
                 <div className="max-w-7xl mx-auto px-6 py-20">
 
                     <div className="grid md:grid-cols-2 gap-10 items-center">
 
-                        {/* Left Content */}
+                        
                         <div>
 
                             <p className="text-blue-600 font-semibold mb-4">
@@ -31,7 +31,7 @@ const Home = () => {
                                 in your career.
                             </p>
 
-                            {/* Search Box */}
+                            
                             <div className="bg-white shadow-lg rounded-xl p-3 mt-8">
 
                                 <div className="flex flex-col md:flex-row gap-3">
@@ -58,7 +58,7 @@ const Home = () => {
 
                         </div>
 
-                        {/* Right Content */}
+                       
                         <div className="hidden md:flex justify-center">
 
                             <div className="bg-blue-600 rounded-3xl p-8 w-96 shadow-xl">

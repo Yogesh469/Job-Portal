@@ -15,11 +15,11 @@ const JobCard = ({ job }) => {
 
                     <div>
                         <h3 className="text-xl font-bold text-slate-900">
-                            {job.title}
+                            {job.company}
                         </h3>
 
                         <p className="text-slate-500 mt-1">
-                            {job.company}
+                            {job.title}
                         </p>
                     </div>
 
@@ -36,7 +36,7 @@ const JobCard = ({ job }) => {
             <div className="flex flex-wrap gap-2 mt-5">
 
                 <span className="bg-blue-50 text-blue-600 px-3 py-1 rounded-full text-sm">
-                    {job.type}
+                    {job.jobType}
                 </span>
 
                 <span className="bg-slate-100 text-slate-600 px-3 py-1 rounded-full text-sm">
@@ -44,7 +44,7 @@ const JobCard = ({ job }) => {
                 </span>
 
                 <span className="bg-slate-100 text-slate-600 px-3 py-1 rounded-full text-sm">
-                    {job.experience}
+                    {job.requirements}
                 </span>
 
             </div>
@@ -64,6 +64,10 @@ const JobCard = ({ job }) => {
 
                     <p className="text-sm text-slate-400 mt-1">
                         Salary
+                    </p>
+
+                    <p className="text-sm text-slate-400 mt-1">
+                        {`Deadline:${job.deadline}`}
                     </p>
                 </div>
 

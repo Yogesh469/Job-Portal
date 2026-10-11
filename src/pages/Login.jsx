@@ -1,8 +1,21 @@
 
 import React, { useState } from "react";
+import { useNavigate } from "react-router";
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
+  const [email ,setemail]=useState("")
+  const [password ,setpassword]=useState("")
+  const nav = useNavigate()
+
+  const Adminlogin=()=>{
+    if(email=== "admin@gmail.com" && password==="admin123"){
+      nav("/admin-login")
+
+    }
+  }
+
+
 
   
 
@@ -86,10 +99,11 @@ const Login = () => {
                 Email Address
               </label>
 
-              <input
+              <input 
                 type="email"
                 placeholder="Enter your email"
                 className="w-full px-4 py-3 border border-gray-200 rounded-xl outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100 transition"
+                onChange={(e)=>setemail(e.target.value)}
               />
             </div>
 
@@ -118,6 +132,7 @@ const Login = () => {
                   type={showPassword ? "text" : "password"}
                   placeholder="Enter your password"
                   className="w-full px-4 py-3 pr-16 border border-gray-200 rounded-xl outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100 transition"
+                  onChange={(e)=>setpassword(e.target.value)}
                 />
 
                 <button
@@ -165,6 +180,7 @@ const Login = () => {
                 transition-all
                 duration-200
               "
+              onClick={()=>Adminlogin()}
             >
               Login
             </button>

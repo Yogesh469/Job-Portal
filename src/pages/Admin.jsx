@@ -1,7 +1,19 @@
 
 import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router";
+import { deleteJob } from "../redux/jobSlice.js";
+
 
 const Admin = () => {
+    const nav = useNavigate()
+    const dispatch = useDispatch()
+
+    const data = useSelector((item) => item.jobs.jobs)
+
+    console.log(data)
+
+
     const stats = [
         {
             title: "Total Jobs",
@@ -25,34 +37,10 @@ const Admin = () => {
         },
     ];
 
-    const recentJobs = [
-        {
-            id: 1,
-            title: "Frontend Developer",
-            company: "TechSoft Nepal",
-            location: "Kathmandu",
-            status: "Active",
-        },
-        {
-            id: 2,
-            title: "Backend Developer",
-            company: "CloudTech",
-            location: "Lalitpur",
-            status: "Active",
-        },
-        {
-            id: 3,
-            title: "UI/UX Designer",
-            company: "DesignHub",
-            location: "Kathmandu",
-            status: "Pending",
-        },
-    ];
-
     return (
         <div className="min-h-screen bg-gray-100 flex">
 
-            {/* Sidebar */}
+
             <aside className="w-64 bg-blue-700 text-white min-h-screen p-6">
 
                 <h1 className="text-2xl font-bold mb-10">
@@ -111,10 +99,10 @@ const Admin = () => {
 
             </aside>
 
-            
+
             <main className="flex-1 p-8">
 
-                
+
                 <div className="flex justify-between items-center mb-8">
 
                     <div>
@@ -139,7 +127,7 @@ const Admin = () => {
 
                 </div>
 
-                
+
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
 
                     {stats.map((stat) => (
@@ -171,7 +159,7 @@ const Admin = () => {
 
                 </div>
 
-                
+
                 <div className="bg-white rounded-xl shadow-sm p-6 mb-8">
 
                     <h3 className="text-xl font-bold text-gray-800 mb-5">
@@ -180,7 +168,9 @@ const Admin = () => {
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
 
-                        <button className="border border-blue-200 text-blue-600 py-3 rounded-lg hover:bg-blue-600 hover:text-white transition">
+                        <button className="border border-blue-200 text-blue-600 py-3 rounded-lg hover:bg-blue-600 hover:text-white transition"
+                            onClick={() => nav("/add-job")}
+                        >
                             + Add Job
                         </button>
 
@@ -200,7 +190,7 @@ const Admin = () => {
 
                 </div>
 
-                
+
                 <div className="bg-white rounded-xl shadow-sm p-6">
 
                     <div className="flex justify-between items-center mb-5">
@@ -231,44 +221,53 @@ const Admin = () => {
 
                             <tbody>
 
-                                {recentJobs.map((job) => (
+                                {data.map((item) => (
                                     <tr
-                                        key={job.id}
+                                        key={item.id}
                                         className="border-b last:border-none hover:bg-gray-50"
                                     >
 
                                         <td className="py-4 font-semibold text-gray-800">
-                                            {job.title}
+                                            {item.title}
                                         </td>
 
                                         <td className="py-4 text-gray-600">
-                                            {job.company}
+                                            {item.company}
                                         </td>
 
                                         <td className="py-4 text-gray-600">
-                                            {job.location}
+                                            {item.location}
                                         </td>
 
                                         <td className="py-4">
-
                                             <span
-                                                className={`px-3 py-1 rounded-full text-sm ${job.status === "Active"
-                                                        ? "bg-green-100 text-green-600"
-                                                        : "bg-yellow-100 text-yellow-600"
+                                                className={`px-3 py-1 rounded-full text-sm ${new Date(item.deadline).setHours(0, 0, 0, 0) <
+                                                    new Date().setHours(0, 0, 0, 0)
+                                                    ? "bg-yellow-100 text-yellow-600"
+                                                    : "bg-green-100 text-green-600"
                                                     }`}
                                             >
-                                                {job.status}
+                                                {new Date(item.deadline).setHours(0, 0, 0, 0) <
+                                                    new Date().setHours(0, 0, 0, 0)
+                                                    ? "Inactive"
+                                                    : "Active"}
                                             </span>
-
                                         </td>
 
                                         <td className="py-4">
 
-                                            <button className="text-blue-600 hover:underline mr-4">
+                                            <button className="text-blue-600 hover:underline mr-4"
+
+                                            onClick={()=>nav(`/add-job/${item.id}`)}
+                                            
+                                            >
                                                 Edit
                                             </button>
 
-                                            <button className="text-red-500 hover:underline">
+                                            <button className="text-red-500 hover:underline"
+                                                onClick={() => dispatch(deleteJob(item.id))}
+
+                                            >
                                                 Delete
                                             </button>
 

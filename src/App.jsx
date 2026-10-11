@@ -8,6 +8,7 @@ import Jobdetail from './pages/Jobdetail'
 import About from './pages/About'
 import Footer from "./components/Footer"
 import Admin from './pages/Admin'
+import AddJob from './pages/Addjob'
 
 
 const App = () => {
@@ -22,6 +23,8 @@ const App = () => {
         <Route path="/about" element={<About />} />
         <Route path="/login" element={<Login />} />
         <Route path="/admin-login" element={<Admin/>} />
+        <Route  path="/add-job" element={<AddJob />}/>
+        <Route  path="/add-job/:id" element={<AddJob />}/>
 
 
       </Routes>
