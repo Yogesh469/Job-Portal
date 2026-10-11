@@ -1,10 +1,10 @@
 
-import React from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux"
 import { useNavigate } from "react-router"
 import { deleteJob } from "../redux/jobSlice.js"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import {  faSuitcase,faBuilding,faUsers,faFileLines } from "@fortawesome/free-solid-svg-icons"
+import { faSuitcase, faBuilding, faUsers, faFileLines } from "@fortawesome/free-solid-svg-icons"
 
 
 const Admin = () => {
@@ -14,23 +14,29 @@ const Admin = () => {
 
     const data = useSelector((item) => item.jobs.jobs)
 
-    console.log(data)
+    console.log(data.length)
 
-    
+    const [showall ,setshowall] =useState(false)
 
-     
+    const displayjobs = showall? data:data.slice(0,6)
+
+
+
+
+
+
 
 
     const stats = [
         {
             title: "Total Jobs",
-            value: "120",
+            value: data.length,
             icon: faSuitcase,
         },
         {
             title: "Companies",
             value: "45",
-            icon:faBuilding,
+            icon: faBuilding,
         },
         {
             title: "Users",
@@ -206,8 +212,12 @@ const Admin = () => {
                             Recent Jobs
                         </h3>
 
-                        <button className="text-blue-600 font-semibold hover:underline">
-                            View All
+                        <button className="text-blue-600 font-semibold hover:underline"
+
+                        onClick={()=>setshowall(!showall)}
+                        
+                        >
+                           {showall?"show-less":"view-all"}
                         </button>
 
                     </div>
@@ -228,7 +238,7 @@ const Admin = () => {
 
                             <tbody>
 
-                                {data.map((item) => (
+                                {displayjobs.map((item) => (
                                     <tr
                                         key={item.id}
                                         className="border-b last:border-none hover:bg-gray-50"
@@ -265,14 +275,26 @@ const Admin = () => {
 
                                             <button className="text-blue-600 hover:underline mr-4"
 
-                                            onClick={()=>nav(`/add-job/${item.id}`)}
-                                            
+                                                onClick={() => nav(`/add-job/${item.id}`)}
+
                                             >
                                                 Edit
                                             </button>
 
                                             <button className="text-red-500 hover:underline"
-                                                onClick={() => dispatch(deleteJob(item.id))}
+                                                onClick={() => {
+
+                                                    if (window.confirm("Are you sure want to delete this job ?")) {
+                                                        dispatch(deleteJob(item.id))
+
+                                                    }
+
+                                                }
+
+                                                }
+
+
+
 
                                             >
                                                 Delete

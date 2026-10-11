@@ -10,7 +10,7 @@ const Footer = () => {
 
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
 
-                    {/* Logo / About */}
+                
                     <div>
                         <h2 className="text-2xl font-bold mb-3">
                             JobPortal
@@ -22,7 +22,7 @@ const Footer = () => {
                         </p>
                     </div>
 
-                    {/* Quick Links */}
+                   
                     <div>
                         <h3 className="text-lg font-semibold mb-3">
                             Quick Links
@@ -55,7 +55,7 @@ const Footer = () => {
                         </ul>
                     </div>
 
-                    {/* For Job Seekers */}
+                    
                     <div>
                         <h3 className="text-lg font-semibold mb-3">
                             Job Seekers
@@ -80,7 +80,7 @@ const Footer = () => {
                         </ul>
                     </div>
 
-                    {/* Contact */}
+                    
                     <div>
                         <h3 className="text-lg font-semibold mb-3">
                             Contact Us
@@ -101,7 +101,6 @@ const Footer = () => {
 
                 </div>
 
-                {/* Bottom */}
                 <div className="border-t border-blue-400 mt-8 pt-5 text-center text-blue-100">
                     <p>
                         © 2026 JobPortal. All rights reserved.
