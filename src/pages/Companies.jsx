@@ -1,54 +1,20 @@
 
 import React from "react";
 import CompanyCard from "../components/Companycard"
+import { useSelector } from "react-redux";
 
 const Companies = () => {
-  const companies = [
-    {
-      id: 1,
-      name: "TechSoft Nepal",
-      location: "Kathmandu",
-      jobs: 12,
-    },
-    {
-      id: 2,
-      name: "CodeCraft Solutions",
-      location: "Lalitpur",
-      jobs: 8,
-    },
-    {
-      id: 3,
-      name: "Digital Nepal",
-      location: "Kathmandu",
-      jobs: 15,
-    },
-    {
-      id: 4,
-      name: "CloudTech",
-      location: "Bhaktapur",
-      jobs: 6,
-    },
-    {
-      id: 5,
-      name: "Innovate Nepal",
-      location: "Pokhara",
-      jobs: 10,
-    },
-    {
-      id: 6,
-      name: "WebWorks Nepal",
-      location: "Kathmandu",
-      jobs: 7,
-    },
-  ];
+  const companies = useSelector((item)=>item.jobs.companies)
+
+  console.log(companies)
 
   return (
     <div className="min-h-screen bg-gray-50">
 
-      {/* Page Header */}
+      
       <div className="relative overflow-hidden bg-gradient-to-r from-blue-700 via-blue-600 to-blue-500 text-white py-20 text-center">
 
-        {/* Decorative Circles */}
+       
         <div className="absolute -top-20 -left-20 w-60 h-60 bg-white/10 rounded-full"></div>
 
         <div className="absolute -bottom-24 -right-20 w-72 h-72 bg-white/10 rounded-full"></div>

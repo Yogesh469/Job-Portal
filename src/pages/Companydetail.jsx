@@ -3,6 +3,8 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { deleteCompany } from "../redux/jobSlice.js";
 import { useNavigate } from "react-router";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBuilding } from "@fortawesome/free-regular-svg-icons";
 
 const CompanyDetail = () => {
     const nav =useNavigate()
@@ -149,7 +151,7 @@ const CompanyDetail = () => {
                                             className="text-center py-12"
                                         >
                                             <div className="text-gray-400 text-4xl mb-3">
-                                                🏢
+                                                <FontAwesomeIcon icon={faBuilding} />
                                             </div>
 
                                             <p className="text-gray-700 font-semibold">
