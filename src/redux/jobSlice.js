@@ -1,12 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { getData, setData } from "../../../localstorage/localStorage.js";
+import { getcompany, getData, setcompany, setData } from "../../../localstorage/localStorage.js";
 
 const jobSlice = createSlice({
     name: "jobs",
 
     initialState: {
         jobs: getData(),
-        companies: []
+        companies:getcompany()
     },
 
     reducers: {
@@ -38,12 +38,15 @@ const jobSlice = createSlice({
 
         addCompany: (state, action) => {
             state.companies.push(action.payload);
+            setcompany(state.companies)
         },
 
         deleteCompany: (state, action) => {
             state.companies = state.companies.filter(
                 (item) => item.id !== action.payload
             )
+
+            setcompany(state.companies)
 
         },
 
@@ -55,8 +58,11 @@ const jobSlice = createSlice({
 
             if (index !== -1) {
                 state.companies[index] = action.payload;
+                setcompany(state.companies)
               
             }
+
+
 
         }
 
@@ -66,6 +72,6 @@ const jobSlice = createSlice({
     }
 });
 
-export const { addJob, deleteJob, updateJob, addCompany, deleteCompany ,updatecompany } = jobSlice.actions
+export const { addJob, deleteJob, updateJob, addCompany, deleteCompany ,updateCompany } = jobSlice.actions
 
 export default jobSlice.reducer

@@ -2,13 +2,23 @@
 import React from "react";
 import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
-import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router";
-import { addCompany } from "../redux/jobSlice.js";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate, useParams } from "react-router";
+import { addCompany, updateCompany } from "../redux/jobSlice.js";
 
 const AddCompany = () => {
+    const { id } = useParams()
+    const isEditMode = Boolean(id)
+    const data = useSelector((item) => item.jobs.companies)
+
+    console.log(data)
+
+    const existingpost = data.find((item) => item.id == id)
+
     const dispatch = useDispatch()
     const nav = useNavigate()
+
+
 
     const validationSchema = Yup.object({
         name: Yup.string()
@@ -81,33 +91,45 @@ const AddCompany = () => {
                 <div className="bg-white rounded-2xl shadow-lg border border-blue-100 p-6 md:p-8">
 
                     <Formik
+                        enableReinitialize
                         initialValues={{
-                            name: "",
-                            logo: "",
-                            industry: "",
-                            location: "",
-                            email: "",
-                            phone: "",
-                            website: "",
-                            foundedYear: "",
-                            companySize: "",
-                            description: "",
-                            workCulture: "",
-                            benefits: "",
-                            linkedIn: "",
+                            name: existingpost?.name || "",
+                            logo: existingpost?.logo || "",
+                            industry: existingpost?.industry || "",
+                            location: existingpost?.location || "",
+                            email: existingpost?.email || "",
+                            phone: existingpost?.phone || "",
+                            website: existingpost?.website || "",
+                            foundedYear: existingpost?.foundedYear || "",
+                            companySize: existingpost?.companySize || "",
+                            description: existingpost?.description || "",
+                            workCulture: existingpost?.workCulture || "",
+                            benefits: existingpost?.benefits || "",
+                            linkedIn: existingpost?.linkedIn || "",
                         }}
 
                         validationSchema={validationSchema}
 
                         onSubmit={(values) => {
-                            const comp = {
-                                ...values,
-                                id: crypto.randomUUID(),
-                            };
+                            if (isEditMode) {
+                                dispatch(updateCompany({ ...values, id }))
 
-                            dispatch(addCompany(comp))
 
-                            console.log(comp)
+                            }
+                            else {
+                                const comp = {
+                                    ...values,
+                                    id: crypto.randomUUID(),
+                                };
+
+                                dispatch(addCompany(comp))
+
+                                console.log(comp)
+
+                            }
+
+
+
 
                             nav("/companies-details")
                         }}
@@ -400,9 +422,11 @@ const AddCompany = () => {
                                     <button
                                         type="submit"
                                         className="bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition shadow-md"
-                                        
+
                                     >
-                                        Add Company
+                                       {isEditMode ?"Update Company" :"Add Company"
+
+                                       }
                                     </button>
                                 </div>
 

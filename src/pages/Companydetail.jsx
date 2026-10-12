@@ -2,8 +2,10 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { deleteCompany } from "../redux/jobSlice.js";
+import { useNavigate } from "react-router";
 
 const CompanyDetail = () => {
+    const nav =useNavigate()
 
     const dispatch =useDispatch()
     const companies = useSelector(
@@ -117,10 +119,8 @@ const CompanyDetail = () => {
                                             <td className="px-5 py-4">
                                                 <div className="flex items-center gap-3">
                                                     <button
-                                                        onClick={() =>
-                                                            console.log("Edit company:", company.id)
-                                                        }
                                                         className="text-blue-600 hover:text-blue-800 font-medium"
+                                                        onClick={()=>nav(`/add-company/${company.id}`)}
                                                     >
                                                         Edit
                                                     </button>
