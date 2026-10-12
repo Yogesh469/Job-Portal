@@ -20,7 +20,7 @@ const Jobs = () => {
             job.location.toLowerCase().includes(location.toLowerCase());
 
         const typeMatch =
-            jobType === "All" || job.type === jobType;
+            jobType === "All" || job.jobType === jobType;
 
         return searchMatch && locationMatch && typeMatch;
     });

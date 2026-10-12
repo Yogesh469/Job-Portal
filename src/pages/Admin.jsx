@@ -16,9 +16,9 @@ const Admin = () => {
 
     console.log(data.length)
 
-    const [showall ,setshowall] =useState(false)
+    const [showall, setshowall] = useState(false)
 
-    const displayjobs = showall? data:data.slice(0,6)
+    const displayjobs = showall ? data : data.slice(0, 6)
 
 
 
@@ -76,12 +76,13 @@ const Admin = () => {
                         Manage Jobs
                     </a>
 
-                    <a
-                        href="#"
+                    <button
+
                         className="block px-4 py-3 rounded-lg hover:bg-blue-600 transition"
+                        onClick={() => nav("/companies-details")}
                     >
                         Companies
-                    </a>
+                    </button>
 
                     <a
                         href="#"
@@ -187,7 +188,10 @@ const Admin = () => {
                             + Add Job
                         </button>
 
-                        <button className="border border-blue-200 text-blue-600 py-3 rounded-lg hover:bg-blue-600 hover:text-white transition">
+                        <button className="border border-blue-200 text-blue-600 py-3 rounded-lg hover:bg-blue-600 hover:text-white transition"
+                            onClick={() => nav("/add-company")}
+
+                        >
                             + Add Company
                         </button>
 
@@ -214,10 +218,10 @@ const Admin = () => {
 
                         <button className="text-blue-600 font-semibold hover:underline"
 
-                        onClick={()=>setshowall(!showall)}
-                        
+                            onClick={() => setshowall(!showall)}
+
                         >
-                           {showall?"show-less":"view-all"}
+                            {showall ? "show-less" : "view-all"}
                         </button>
 
                     </div>
@@ -228,6 +232,7 @@ const Admin = () => {
 
                             <thead>
                                 <tr className="border-b text-gray-500 text-sm">
+                                    <th className="py-3">S.N.</th>
                                     <th className="py-3">Job Title</th>
                                     <th className="py-3">Company</th>
                                     <th className="py-3">Location</th>
@@ -238,11 +243,18 @@ const Admin = () => {
 
                             <tbody>
 
-                                {displayjobs.map((item) => (
+                                {displayjobs.map((item,index) => (
                                     <tr
                                         key={item.id}
                                         className="border-b last:border-none hover:bg-gray-50"
                                     >
+
+
+                                        <td className="py-4 font-semibold text-gray-800">
+                                            {`${index+1}.`}
+                                        </td>
+
+
 
                                         <td className="py-4 font-semibold text-gray-800">
                                             {item.title}

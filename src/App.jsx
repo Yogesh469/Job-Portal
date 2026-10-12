@@ -9,6 +9,8 @@ import About from './pages/About'
 import Footer from "./components/Footer"
 import Admin from './pages/Admin'
 import AddJob from './pages/Addjob'
+import AddCompany from './pages/AddCompany'
+import Companydetail from './pages/Companydetail'
 
 
 const App = () => {
@@ -25,6 +27,8 @@ const App = () => {
         <Route path="/admin-login" element={<Admin/>} />
         <Route  path="/add-job" element={<AddJob />}/>
         <Route  path="/add-job/:id" element={<AddJob />}/>
+        <Route  path="/add-company" element={<AddCompany />}/>
+         <Route  path="/companies-details" element={<Companydetail/>}/>
 
 
       </Routes>
