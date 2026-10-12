@@ -1,4 +1,6 @@
-import React from "react";
+import React from "react"
+import { faHeart } from "@fortawesome/free-regular-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const JobCard = ({ job }) => {
     return (
@@ -27,7 +29,7 @@ const JobCard = ({ job }) => {
 
                 
                 <button className="text-2xl text-slate-400 hover:text-blue-600">
-                    ♡
+                    <FontAwesomeIcon icon={faHeart} />
                 </button>
 
             </div>
