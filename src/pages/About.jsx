@@ -1,14 +1,17 @@
 
-import React from "react";
+import React from "react"
+import { faBuilding } from "@fortawesome/free-regular-svg-icons";
+import { faMagnifyingGlass, faRocket } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const About = () => {
   return (
     <div className="min-h-screen bg-gray-50">
 
-      {/* Hero Section */}
+
       <section className="relative overflow-hidden bg-gradient-to-r from-blue-700 via-blue-600 to-blue-500 text-white py-20">
 
-        {/* Decorative Circles */}
+
         <div className="absolute -top-20 -left-20 w-60 h-60 bg-white/10 rounded-full"></div>
 
         <div className="absolute -bottom-24 -right-20 w-72 h-72 bg-white/10 rounded-full"></div>
@@ -33,12 +36,12 @@ const About = () => {
       </section>
 
 
-      {/* About Section */}
+
       <section className="max-w-6xl mx-auto px-6 py-16">
 
         <div className="grid md:grid-cols-2 gap-12 items-center">
 
-          {/* Left */}
+
           <div>
 
             <p className="text-blue-600 font-semibold uppercase tracking-wide text-sm">
@@ -64,7 +67,7 @@ const About = () => {
           </div>
 
 
-          {/* Right */}
+
           <div className="bg-white rounded-2xl shadow-lg border border-gray-100 p-8">
 
             <div className="grid grid-cols-2 gap-5">
@@ -118,7 +121,7 @@ const About = () => {
       </section>
 
 
-      {/* Why Choose Us */}
+
       <section className="bg-white py-16">
 
         <div className="max-w-6xl mx-auto px-6">
@@ -143,11 +146,11 @@ const About = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-7">
 
-            {/* Feature 1 */}
+
             <div className="group bg-gray-50 border border-gray-100 rounded-2xl p-7 hover:-translate-y-2 hover:shadow-xl hover:border-blue-200 transition-all duration-300">
 
               <div className="w-14 h-14 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center text-2xl group-hover:bg-blue-600 group-hover:text-white transition-all duration-300">
-                🔍
+                <FontAwesomeIcon icon={faMagnifyingGlass} />
               </div>
 
               <h3 className="text-xl font-bold text-gray-800 mt-6">
@@ -162,11 +165,11 @@ const About = () => {
             </div>
 
 
-            {/* Feature 2 */}
+
             <div className="group bg-gray-50 border border-gray-100 rounded-2xl p-7 hover:-translate-y-2 hover:shadow-xl hover:border-blue-200 transition-all duration-300">
 
               <div className="w-14 h-14 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center text-2xl group-hover:bg-blue-600 group-hover:text-white transition-all duration-300">
-                🏢
+                <FontAwesomeIcon icon={faBuilding} />
               </div>
 
               <h3 className="text-xl font-bold text-gray-800 mt-6">
@@ -181,11 +184,11 @@ const About = () => {
             </div>
 
 
-            {/* Feature 3 */}
+
             <div className="group bg-gray-50 border border-gray-100 rounded-2xl p-7 hover:-translate-y-2 hover:shadow-xl hover:border-blue-200 transition-all duration-300">
 
               <div className="w-14 h-14 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center text-2xl group-hover:bg-blue-600 group-hover:text-white transition-all duration-300">
-                🚀
+                <FontAwesomeIcon icon={faRocket} />
               </div>
 
               <h3 className="text-xl font-bold text-gray-800 mt-6">
@@ -206,7 +209,7 @@ const About = () => {
       </section>
 
 
-      {/* Mission Section */}
+
       <section className="max-w-6xl mx-auto px-6 py-16">
 
         <div className="bg-gradient-to-r from-blue-600 to-blue-700 rounded-3xl p-10 md:p-14 text-white text-center shadow-xl">

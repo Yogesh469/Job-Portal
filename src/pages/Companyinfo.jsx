@@ -3,18 +3,7 @@ import React from "react";
 import { useParams, useNavigate } from "react-router";
 import { useSelector } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faLocationPin,
-  faEnvelope,
-  faPhone,
-  faGlobe,
-  faCalendar,
-  faUsers,
-  faBuilding,
-  faBriefcase,
-  faArrowLeft,
-  faCheckCircle,
-} from "@fortawesome/free-solid-svg-icons";
+import { faLocationPin, faEnvelope, faPhone, faGlobe, faCalendar, faUsers, faBuilding, faBriefcase, faArrowLeft, faCheckCircle} from "@fortawesome/free-solid-svg-icons";
 import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
 
 const Companyinfo = () => {

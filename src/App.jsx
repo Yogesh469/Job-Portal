@@ -12,6 +12,7 @@ import AddJob from './pages/Addjob'
 import AddCompany from './pages/AddCompany'
 import Companydetail from './pages/Companydetail'
 import Companyinfo from './pages/Companyinfo'
+import JobDetail2 from './pages/Jobdetail2'
 
 
 const App = () => {
@@ -32,6 +33,7 @@ const App = () => {
          <Route  path="/companies-details" element={<Companydetail/>}/>
          <Route  path ="/add-company/:id" element ={<AddCompany/>}/>
          <Route path ="/company-info/:id" element={<Companyinfo/>}/>
+         <Route path="/jobdetail2/:id" element={<JobDetail2 />}/>
 
 
       </Routes>

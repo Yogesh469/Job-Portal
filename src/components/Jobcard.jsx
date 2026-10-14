@@ -1,10 +1,17 @@
 import React from "react"
 import { faHeart } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useNavigate } from "react-router";
+import { useSelector } from "react-redux";
 
 const JobCard = ({ job }) => {
+    const nav=useNavigate()
+  
     return (
-        <div className="bg-white border border-slate-200 rounded-xl p-6 hover:shadow-lg hover:border-blue-300 transition">
+        <div className="bg-white border border-slate-200 rounded-xl p-6 hover:shadow-lg hover:border-blue-300 transition"
+        onClick={()=>nav(`/jobdetail2/${job.id}`)}
+        
+        >
 
             
             <div className="flex justify-between">
